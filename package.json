@@ -1,0 +1,17 @@
+{
+  "name": "local-img-helper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "bin": "./bin/index.js",
+  "private": false,
+  "scripts": {
+    "show-img": "node bin/index.js --path=src"
+  },
+  "type": "commonjs",
+  "author": "wangweixin",
+  "license": "MIT",
+  "dependencies": {
+    "minimist": "^1.2.6"
+  }
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Img Local Helper</title>
+</head>
+
+<body>
+    <div id="img_container" style="max-width: 100%"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script type="text/javascript" src="store.js"></script>
+</body>
+
+<script>
+    const e = React.createElement;
+    class ImgContainer extends React.Component {
+        constructor(props) {
+            super(props);
+        }
+
+        render() {
+            return e(
+                'div',
+                {},
+                [   
+                    e(
+                    'h1',
+                    {},
+                    '空白展示可能为透明图片，点击下方button可复制名称',
+                    ),
+                    Object.keys(imgJson).map(el => {
+                        return e(
+                            'div',
+                            {
+                                key: el,
+                            },
+                            [
+                                e(
+                                    'h2',
+                                    {},
+                                    el
+                                ),
+                                e(
+                                    'div',
+                                    {
+                                        style: { display: 'flex', flexWrap: 'wrap' }
+                                    },
+                                    imgJson[el].map(i => {
+                                        return e(
+                                            'div',
+                                            {
+                                                key: i.name,
+                                                style: { width: '120px', padding: '10px', border: '1px solid #000000', overflow: 'hidden', display: 'flex', justifyContent: 'space-between', flexDirection: 'column' }
+                                            },
+                                            [
+                                                e(
+                                                    'img',
+                                                    {
+                                                        src: i.path,
+                                                        style: { width: '100%', display: 'block' },
+                                                    },
+                                                ),
+                                                e(
+                                                    'button',
+                                                    {
+                                                        onClick: () => navigator?.clipboard?.writeText(`${el}/${i.name}`),
+                                                        style: { cursor: 'pointer', marginTop: '10px' }
+                                                    },
+                                                    i.name
+                                                )
+                                            ]
+                                        )
+                                    })
+                                ),
+                            ],
+                        );
+                    })
+                ]
+            )
+        }
+    }
+
+    const domContainer = document.querySelector('#img_container');
+    const root = ReactDOM.createRoot(domContainer);
+    root.render(e(ImgContainer));
+</script>
+
+</html>
