@@ -20,3 +20,7 @@ you can use `yarn static-check --path=src` in your terminal or add a command in 
   }
 }
 ```
+
+## Note
+
+Folders with `. or node_modules or dist` in the name are automatically skipped.
