@@ -25,7 +25,9 @@
         render() {
             return e(
                 'div',
-                {},
+                {
+                    className: 'container'
+                },
                 [   
                     e(
                     'h1',
@@ -41,7 +43,9 @@
                             [
                                 e(
                                     'h2',
-                                    {},
+                                    {
+                                        className: 'path',
+                                    },
                                     el
                                 ),
                                 e(
@@ -54,21 +58,21 @@
                                             'div',
                                             {
                                                 key: i.name,
-                                                style: { width: '120px', padding: '10px', border: '1px solid #000000', overflow: 'hidden', display: 'flex', justifyContent: 'space-between', flexDirection: 'column' }
+                                                className: 'item',
                                             },
                                             [
                                                 e(
                                                     'img',
                                                     {
                                                         src: i.path,
-                                                        style: { width: '100%', display: 'block' },
+                                                        className: 'item-img',
                                                     },
                                                 ),
                                                 e(
                                                     'button',
                                                     {
                                                         onClick: () => navigator?.clipboard?.writeText(`${el}/${i.name}`),
-                                                        style: { cursor: 'pointer', marginTop: '10px' }
+                                                        className: 'item-btn',
                                                     },
                                                     i.name
                                                 )
@@ -89,4 +93,42 @@
     root.render(e(ImgContainer));
 </script>
 
+<style>
+.container {
+    padding: 20px;
+}
+
+.path {
+    padding-top: 10px;
+}
+
+.item {
+    margin-top: 32px;
+    padding: 10px;
+    width: 150px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+
+.item:hover {
+    border: 1px solid #e2e2e2;
+    background: #f2f2f2;
+}
+
+.item-img {
+    width: 100px;
+    display: block;
+}
+
+.item-btn {
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+</style>
 </html>
