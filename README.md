@@ -6,12 +6,12 @@ A tool to help you view local pictures.
 yarn add local-img-helper --dev
 ```
 
-you can use `yarn static-check --path=src` in your terminal or add a command in `scripts` of file "package.json".
+you can use `yarn local-img-helper --path=src` in your terminal or add a command in `scripts` of file "package.json".
 
 ```
 {
   "scripts": {
-    "img": "yarn static-check --path=src"
+    "img": "yarn local-img-helper --path=src"
   }
 }
 ```
