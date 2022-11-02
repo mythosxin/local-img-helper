@@ -28,4 +28,4 @@ your files path, `--path` is required.
 Folders with `. or node_modules or dist` in the name are automatically skipped.
 
 
-## [GitHub](https://github.com/mythosxin/local-img-helper/blob/master/README.md)
+## [GitHub](https://github.com/mythosxin/local-img-helper)
