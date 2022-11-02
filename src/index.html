@@ -28,11 +28,11 @@
                 {
                     className: 'container'
                 },
-                [   
+                [
                     e(
-                    'h1',
-                    {},
-                    '空白展示可能为透明图片，点击下方button可复制名称',
+                        'h1',
+                        {},
+                        '空白展示可能为透明图片，点击下方button可复制名称',
                     ),
                     Object.keys(imgJson).map(el => {
                         return e(
@@ -69,12 +69,41 @@
                                                     },
                                                 ),
                                                 e(
-                                                    'button',
-                                                    {
-                                                        onClick: () => navigator?.clipboard?.writeText(`${el}/${i.name}`),
-                                                        className: 'item-btn',
-                                                    },
-                                                    i.name
+                                                    'div',
+                                                    {},
+                                                    [
+                                                        e(
+                                                            'div',
+                                                            {
+                                                                className: 'item-name',
+                                                            },
+                                                            i.name
+                                                        ),
+                                                        e(
+                                                            'div',
+                                                            {
+                                                                className: 'item-btn',
+                                                            },
+                                                            [
+                                                                e(
+                                                                    'button',
+                                                                    {
+                                                                        onClick: () => navigator?.clipboard?.writeText(i.name),
+                                                                        className: 'btn',
+                                                                    },
+                                                                    'name'
+                                                                ),
+                                                                e(
+                                                                    'button',
+                                                                    {
+                                                                        onClick: () => navigator?.clipboard?.writeText(`${el}/${i.name}`),
+                                                                        className: 'btn',
+                                                                    },
+                                                                    'path'
+                                                                ),
+                                                            ],
+                                                        ),
+                                                    ]
                                                 )
                                             ]
                                         )
@@ -94,41 +123,51 @@
 </script>
 
 <style>
-.container {
-    padding: 20px;
-}
+    .container {
+        padding: 20px;
+    }
 
-.path {
-    padding-top: 10px;
-}
+    .path {
+        padding-top: 10px;
+    }
 
-.item {
-    margin-top: 32px;
-    padding: 10px;
-    width: 150px;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    border: 1px solid transparent;
-    border-radius: 10px;
-}
+    .item {
+        margin-top: 32px;
+        padding: 10px;
+        width: 150px;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        border: 1px solid transparent;
+        border-radius: 10px;
+    }
 
-.item:hover {
-    border: 1px solid #e2e2e2;
-    background: #f2f2f2;
-}
+    .item:hover {
+        border: 1px solid #e2e2e2;
+        background: #f2f2f2;
+    }
 
-.item-img {
-    width: 100px;
-    display: block;
-}
+    .item-img {
+        width: 100px;
+        display: block;
+    }
 
-.item-btn {
-    cursor: pointer;
-    margin-top: 20px;
-}
+    .item-name {
+        margin-top: 20px;
+        font-size: 12px;
+    }
 
+    .item-btn {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn {
+        cursor: pointer;
+        margin-right: 15px;
+    }
 </style>
 </html>
