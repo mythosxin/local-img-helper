@@ -26,3 +26,6 @@ your files path, `--path` is required.
 ## Note
 
 Folders with `. or node_modules or dist` in the name are automatically skipped.
+
+
+## [GitHub](https://github.com/mythosxin/local-img-helper/edit/master/README.md)
